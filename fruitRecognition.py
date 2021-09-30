@@ -64,6 +64,18 @@ class fruitification():
             print(i[7:], ":", self.counts[self.LABELS[i]])
 
 
+def displayImage():
+    training_data = np.load("training_data.npy", allow_pickle=True)
+
+    # training_data[...][0] ==> the actual image in array format
+    # training_data[...][1] ==> the label of image
+
+    plt.imshow(training_data[1][0], cmap="gray")
+    print(training_data[1][1])
+    plt.show()
+
+
 fds = fruitification()
 print("Making...")
 fds.make_training_data()
+displayImage()
