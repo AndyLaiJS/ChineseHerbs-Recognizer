@@ -25,13 +25,14 @@ collect = collection.find({})
 for c in collect:
     print(c)
 
-class_labels = 'fruits_classes.json'
+class_labels = 'herbs_classes.json'
 
 # Read the json
-with open('fruits_classes.json', 'r') as fr:
+with open(class_labels, 'r') as fr:
     json_classes = json.loads(fr.read())
 
 app = Flask(__name__)
+app.run(host='0.0.0.0')
 
 # Allow
 CORS(app)
@@ -52,8 +53,9 @@ def hello():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        print("People people!")
         # "Capture" the POST image upload
+        print("\nREQUEST IS:")
+        print(request.files)
         file = request.files['file']
 
         if file:
@@ -67,31 +69,20 @@ def upload_file():
             np_img = np.fromfile(file, np.uint8)
             file = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
             file = cv2.cvtColor(file, cv2.COLOR_BGR2RGB)
-            print(type(file))
+            # print(type(file))
+            # PILLOW format right here (.convert)
             file = Image.fromarray(np.uint8(file)).convert('RGB')
-            print(type(file))
+            # print(type(file))
             img_tensor = preprocess(file)
-            print(img_tensor)
-            print(img_tensor.shape)
+            # print(img_tensor)
+            # print(img_tensor.shape)
 
             labels = {int(key): value for (key, value)
                       in json_classes.items()}
-            # Convert into np array
-            # npimg = np.fromfile(file, np.uint8)
-            # file = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
-            # file = cv2.resize(file, (200, 200))
-
-            # Convert into Tensor
-            # torch_file = torch.from_numpy(file)
-            # print(torch_file)
-            # print(torch_file.shape)
-            # print(torch.flip(torch_file, [0, 1]))
-            # print(torch.flip(torch_file, [0, 1]).shape)
             predicted = predict_image(img_tensor)
             print(labels[predicted.item()])
 
             result = collection.find_one({"label": labels[predicted.item()]})
-            # result = collection.find_one({"name": "Strawberry"})
             print("Result", result)
 
             return json.dumps({"label": labels[predicted.item()], "data": result["benefits"]})
