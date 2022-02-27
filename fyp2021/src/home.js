@@ -58,6 +58,7 @@ export default function Home() {
 		e.preventDefault();
 		// preparing the img into a FormData format so Flask backend can process it
 		const formData = new FormData();
+		console.log(selected);
 
 		formData.append("file", selected);
 
@@ -70,12 +71,12 @@ export default function Home() {
 					data = response.data;
 					setContent(data);
 					console.log(data);
+				})
+				.catch(function (error) {
+					console.log(error);
 				});
 
 			const reader = new FileReader();
-			// reader.addEventListener("load", () => {
-			// 	setImgData(reader.result);
-			// });
 			reader.readAsDataURL(e.target.files[0]);
 		} else {
 			setFile(null);

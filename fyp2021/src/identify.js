@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 
 export default function Home() {
 	const history = useHistory();
 	const location = useLocation();
-	const [content, setContent] = useState(null);
-	const [file, setFile] = useState(null);
-	const [imgData, setImgData] = useState(null);
 
 	var dataImage = localStorage.getItem("storedimg");
 	var theImg = "data:image/png;base64," + dataImage;
@@ -27,7 +23,7 @@ export default function Home() {
 		<div>
 			<div className="bCircle">
 				<div className="fCircle">
-					<img className="fill_img" src={theImg} />
+					<img className="fill_img" src={theImg} alt="predicted" />
 				</div>
 			</div>
 			<div className="container">
