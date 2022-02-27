@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./App.css";
 import axios from "axios";
+import CircularPicFrame from "./components/CircularPicFrame";
 
 export default function Home() {
 	const history = useHistory();
@@ -85,15 +86,11 @@ export default function Home() {
 
 	return (
 		<div className="App">
-			<div className="bCircle">
-				<div className="fCircle">
-					<img className="upl_img" src="/MHW2102.png" />
-				</div>
-			</div>
-			<div className="label">
+			<CircularPicFrame img={"/MHW2102.png"} />
+			{/* <div className="label">
 				{file && content && <div>{content.label}</div>}
 			</div>
-			<div className="desc">{file && content && <div>{content.data}</div>}</div>
+			<div className="desc">{file && content && <div>{content.data}</div>}</div> */}
 			<form method="post" encType="multipart/form-data">
 				<label>
 					<input type="file" onChange={HandleChange} />

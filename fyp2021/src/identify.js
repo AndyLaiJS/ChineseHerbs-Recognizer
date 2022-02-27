@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { useHistory, useLocation } from "react-router-dom";
+import CircularPicFrame from "./components/CircularPicFrame";
 
 export default function Home() {
 	const history = useHistory();
@@ -21,11 +22,7 @@ export default function Home() {
 
 	return (
 		<div>
-			<div className="bCircle">
-				<div className="fCircle">
-					<img className="fill_img" src={theImg} alt="predicted" />
-				</div>
-			</div>
+			<CircularPicFrame img={theImg} />
 			<div className="container">
 				<div className="labelHead">{location.state.Label}</div>
 				<div className="contentDesc">{location.state.Desc}</div>
