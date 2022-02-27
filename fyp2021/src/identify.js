@@ -3,6 +3,7 @@ import "./App.css";
 import { useHistory } from "react-router-dom";
 import CircularPicFrame from "./components/CircularPicFrame";
 import { useSelector } from "react-redux";
+import IdentifyNext from "./components/IdentifyNext";
 
 export default function Home() {
 	const history = useHistory();
@@ -17,32 +18,13 @@ export default function Home() {
 		history.push("/");
 	}
 
-	const nextChange = (e) => {
-		// console.log(e);
-		history.push("/");
-		window.location.reload();
-	};
-
 	return (
 		<div>
 			<CircularPicFrame img={theImg} />
 			<div className="container">
 				<div className="labelHead">{label}</div>
 				<div className="contentDesc">{desc}</div>
-				<div className="ubutton" onClick={nextChange}>
-					<div className="b_inside">
-						<p
-							style={{
-								fontSize: "28px",
-								fontWeight: "bolder",
-								color: "#FF4689",
-								margin: "0",
-							}}
-						>
-							Identify Next
-						</p>
-					</div>
-				</div>
+				<IdentifyNext />
 			</div>
 		</div>
 	);

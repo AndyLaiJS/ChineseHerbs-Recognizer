@@ -45,25 +45,6 @@ body {
 		inset 3px 3px 2px rgba(0, 0, 0, 0.2);
 }
 
-label input {
-	height: 0;
-	width: 0;
-	opacity: 0;
-}
-
-.ubutton {
-	display: block;
-	border: none;
-	outline: none;
-	width: 220px;
-	padding: 15px;
-	margin: auto;
-	background: #ffe4f3;
-	box-shadow: -3px -3px 10px #ffffff, 4px 4px 10px rgba(255, 61, 169, 0.3);
-	border-radius: 100px;
-	cursor: pointer;
-}
-
 .container {
 	width: 635px;
 	margin: 5% auto;
