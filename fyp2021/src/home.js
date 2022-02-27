@@ -113,11 +113,11 @@ export default function Home() {
 					</span>
 				</label>
 			</form>
-			<div className="footer">
+			<footer className="footer">
 				A MHW2102 FYP Project done by:
 				<div>Lai Jian Shin, 1155116310</div>
 				<div>Saranya Gupta, 1155116398</div>
-			</div>
+			</footer>
 		</div>
 	);
 }
