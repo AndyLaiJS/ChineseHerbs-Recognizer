@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import CircularPicFrame from "./components/CircularPicFrame";
+import { useSelector } from "react-redux";
 
 export default function Home() {
 	const history = useHistory();
-	const location = useLocation();
+
+	const label = useSelector((state) => state.Label);
+	const desc = useSelector((state) => state.Desc);
 
 	var dataImage = localStorage.getItem("storedimg");
 	var theImg = "data:image/png;base64," + dataImage;
 
-	useEffect(() => {
-		console.log(location.state);
-	}, [location]);
+	if (label == "") {
+		history.push("/");
+	}
 
 	const nextChange = (e) => {
 		// console.log(e);
@@ -24,8 +27,8 @@ export default function Home() {
 		<div>
 			<CircularPicFrame img={theImg} />
 			<div className="container">
-				<div className="labelHead">{location.state.Label}</div>
-				<div className="contentDesc">{location.state.Desc}</div>
+				<div className="labelHead">{label}</div>
+				<div className="contentDesc">{desc}</div>
 				<div className="ubutton" onClick={nextChange}>
 					<div className="b_inside">
 						<p

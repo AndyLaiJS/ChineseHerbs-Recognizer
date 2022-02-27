@@ -2,10 +2,13 @@ import styles from "./UploadButton.module.css";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { recognizerActions } from "../store/redux_index";
 
 const UploadButton = () => {
 	const history = useHistory();
 	const [content, setContent] = useState(null);
+	const dispatch = useDispatch();
 
 	// This some Dr. Strange stuff
 	function getBase64Image(img) {
@@ -21,13 +24,13 @@ const UploadButton = () => {
 	// once content is filled, go to /identified page carrying the content data
 	useEffect(() => {
 		if (content != null) {
-			history.push({
-				pathname: "/identified",
-				state: {
-					Label: content.label,
-					Desc: content.data,
-				},
-			});
+			dispatch(
+				recognizerActions.updateStore({
+					label: content.label,
+					desc: content.data,
+				})
+			);
+			history.push("/identified");
 		}
 	}, [content]);
 
