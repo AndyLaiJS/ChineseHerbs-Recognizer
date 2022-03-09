@@ -8,7 +8,7 @@ import UploadButton from "./components/UploadButton";
 export default function Home() {
 	return (
 		<div className="App">
-			<CircularPicFrame img={"/MHW2102.png"} />
+			<CircularPicFrame img={"/MHW2102-H.png"} />
 			<UploadButton />
 			<footer className="footer">
 				A MHW2102 FYP Project done by:

@@ -12,7 +12,7 @@ function App() {
 				<div className="Background">
 					<div className="Header">
 						<div className="H1">MHW2102</div>
-						<div className="H2">Fruit Recognizer</div>
+						<div className="H2">Herbs Recognizer</div>
 					</div>
 					<div className="bar"> </div>
 					<NavLink to="/" exact></NavLink>
