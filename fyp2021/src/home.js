@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React from "react";
 import "./App.css";
-import axios from "axios";
 import CircularPicFrame from "./components/CircularPicFrame";
 import UploadButton from "./components/UploadButton";
 

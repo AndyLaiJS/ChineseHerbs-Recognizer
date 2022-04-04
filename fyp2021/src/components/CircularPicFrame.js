@@ -5,7 +5,7 @@ const CircularPicFrame = (props) => {
 			<div className={styles.fCircle}>
 				<img
 					className={
-						props.img == "/MHW2102.png" ? styles.upl_img : styles.fill_img
+						props.img === "/MHW2102-H.png" ? styles.upl_img : styles.fill_img
 					}
 					src={props.img}
 				/>

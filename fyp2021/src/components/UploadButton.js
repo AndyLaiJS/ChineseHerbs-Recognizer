@@ -26,6 +26,7 @@ const UploadButton = () => {
 		if (content != null) {
 			dispatch(
 				recognizerActions.updateStore({
+					cnlabel: content.cnlabel,
 					label: content.label,
 					desc: content.data,
 				})

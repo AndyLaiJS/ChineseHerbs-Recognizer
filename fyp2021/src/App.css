@@ -6,6 +6,13 @@ body {
 	text-align: center;
 }
 
+.Blue {
+	color: blue;
+}
+
+.Red {
+	color: red;
+}
 .Header {
 	font-family: "Montserrat", Arial, Helvetica, sans-serif;
 	font-size: 60px;

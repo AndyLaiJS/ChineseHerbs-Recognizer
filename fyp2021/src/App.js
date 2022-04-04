@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
